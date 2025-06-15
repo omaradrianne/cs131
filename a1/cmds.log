@@ -1,0 +1,29 @@
+Commands Used
+
+Task 1: 
+What is your home directory path? How did you find out (commands used)?
+echo $HOME
+OR
+echo ~
+
+Task 2:
+Using only "ls" (and maybe "grep"), can you find out which file under directory /proc/ contains information about memory (mem) on your server?
+ls /proc/ | grep "meminf"
+
+Which file contains information about the CPU's on your server?
+ls /proc/ | grep "cpu"
+
+Task 3:
+Identify the operating system version. 
+cat /etc/os-release | grep "VERSION="
+
+Which file under /etc/ contains this information?
+ls /etc/ | grep "os-"
+
+Task 4:
+Using the taxi dataset (2019-04.csv):
+A. Sort the pickup location IDs in order to find the most popular pickup locations on April   2nd, 2019. Identify the top 3 locations.
+grep '^[0-9].[0-9],\"2019-04-02' 2019-04.csv | cut -d ',' -f 8 | sort | uniq -c | sort -nr | head -3
+
+B. Sort the pickup location IDs in order to find the most popular pickup locations on April   10th, 2019. Identify the top 3 locations.
+grep '^[0-9].[0-9],\"2019-04-10' 2019-04.csv | cut -d ',' -f 8 | sort | uniq -c | sort -nr | head -3
