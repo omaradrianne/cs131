@@ -1,23 +1,38 @@
 #!/bin/bash
+# tell the system to run this script with the Bash shell
 
 # ask user for the dataset URL
-echo -n "Enter url: "
-read url
+echo -n "Enter url: " # print prompt without a newline so user input remain on same line
+read url # wait, read user input, and store it in url variable
 
 # download the file
 echo "Downloading..."
-filename=$(basename "$url") # echo "$filename" outputs wine+quality.zip for example
+filename=$(basename "$url") # basename strips the path from url, wine+quality.zip remains
+
+# curl downloads from the internet
+# $url is the url to fetch
+# -o "$filename" saves the download to the filename we determined above
 curl "$url" -o "$filename"
 
 # unzip if it is a zip file
+# if filename is ends with .zip then unzip
+# 
 if [[ "$filename" == *.zip ]]; then
 	echo "Unzipping..."
+	
+	# unzip extracts zip files
+	# -o overwrite existing files without asking
+	# $filename is the zip file to unzip
 	unzip -o "$filename" # Extract all the contents of zip into working directory
 	
 	# bash array assignment with command substitution
+	# unzip -l "$filename" lists contents of the zip
+	# filter for lines ending in .csv
 	# $NF means "the last field" in awk
 	csvfiles=( $(unzip -l "$filename" | awk '/.csv$/ {print $NF}') )
 else
+	# if not a zip, treat the downloaded file as a csv
+	# and place in array for consistency with the zipped case
 	csvfiles=("$filename")
 fi
 
@@ -25,16 +40,21 @@ fi
 for csvfile in "${csvfiles[@]}"; do # for all items of array csvfiles, do
 	echo "Processing CSV: $csvfile"
 
-	header=$(head -1 "$csvfile") # grab the first line of the csv
-	IFS=';' read -ra columns <<< "$header" # split the by commas into columns array
+	header=$(head -1 "$csvfile") # grab the first line of the csv, header row
+	
+	# set the internal field separator row to semicolon
+	# -r: don't treat backslashes as escapes
+	# -a stores the semicolon separated header as an array called columns
+	IFS=';' read -ra columns <<< "$header"
 	
 	# clean up quotes from each column name
+	# traverse the columns array and remove quotations using sed substitution
 	for i in "${!columns[@]}"; do
 		columns[$i]=$(echo "${columns[$i]}" | sed 's/"//g')
 	done
-
+	
 	echo "Columns found in $csvfile:"
-	for i in "${!columns[@]}"; do # provide the array indeces 
+	for i in "${!columns[@]}"; do # provide the array indeces 0 to n-1
 		echo "$((i+1)). ${columns[$i]}" # display the columns with 1-based index
 	done
 	
@@ -62,6 +82,7 @@ for csvfile in "${csvfiles[@]}"; do # for all items of array csvfiles, do
 	echo "| Index | Feature | Min | Max | Mean | StdDev |" >> "$summary"
 	echo "|-------|---------|-----|-----|------|--------|" >> "$summary"
 
+	# IMPORTANT: subsequent code is AI-GENERATED to provide proper demonstration output	
 	# process each numeric column
 	for idx in "${num_indices[@]}"; do
         	col=$((idx))
