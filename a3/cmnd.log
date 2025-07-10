@@ -1,1 +1,15 @@
 Commands relevant to the tasks.
+
+Task 1: Stores the sum of grades for each student in an associative array.
+
+NOTE: This is sample code that demonstrate proper sum total output per student.
+
+NR > 1 {
+    # Set each key as the student name.
+    gradeSum[$2] = $3 + $4 + $5
+}
+
+END {
+    for (s in gradeSum)
+        print s "\'s total grade is", gradeSum[s] "."
+}

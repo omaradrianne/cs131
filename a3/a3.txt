@@ -1,1 +1,12 @@
 Outputs from each task.
+
+Task 1:
+Stores the sum of grades for each student in an associative array.
+
+NOTE: This is early output to show proper sum total.
+
+David's total grade is 195.
+Eve's total grade is 265.
+Bob's total grade is 246.
+Charlie's total grade is 270.
+Alice's total grade is 253.
