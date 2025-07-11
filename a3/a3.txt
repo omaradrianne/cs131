@@ -2,7 +2,7 @@ Outputs from each task.
 
 Task 1: Stores the sum of grade scores for each student in an associative array.
 
-NOTE: Initial output demonstrating proper total grade score calculation.
+NOTE: Output demonstrates proper total grade score calculation.
 
 David's total grade is 195.
 Eve's total grade is 265.
@@ -14,7 +14,7 @@ Task 2: Calculates the average grade for each student and classifies them as Pas
         (average ≥ 70) or Fail. (Must use a user-defined function to calculate the 
         average.)
 
-NOTE: Second output demonstrating proper average grade calculation and classification.
+NOTE: Output demonstrates proper average grade calculation and classification.
 
 Alice's average grade is 84.3333 [PASS]
 Bob's average grade is 82 [PASS]
@@ -24,7 +24,7 @@ Eve's average grade is 88.3333 [PASS]
 
 Task 3: Determine the highest and lowest scoring students (total score)
 
-NOTE: Third output demonstrates proper retrieval of the lowest/highest scoring students.
+NOTE: Output demonstrates proper retrieval of the lowest/highest scoring students.
 
 Student with the lowest score: David
 Total score: 195
@@ -32,3 +32,43 @@ Status: FAIL
 Student with the highest score: Charlie
 Total score: 270
 Status: PASS
+
+Task 4: Print the following for each student at the end
+        * Student name
+        * Total score
+        * Average score
+        * Status (pass/fail)
+
+NOTE: Output satisfies the requirements/format.
+
+Student name: David
+Total score: 195
+Average score: 65
+Status: Fail
+
+Student name: Eve
+Total score: 265
+Average score: 88.3333
+Status: Pass
+
+Student name: Bob
+Total score: 246
+Average score: 82
+Status: Pass
+
+Student name: Charlie
+Total score: 270
+Average score: 90
+Status: Pass
+
+Student name: Alice
+Total score: 253
+Average score: 84.3333
+Status: Pass
+
+Task 5: Also, print the top and lowest scoring students
+
+NOTE: Output satisfied
+
+Top scoring student: Charlie
+Lowest scoring student: David 

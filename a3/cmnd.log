@@ -2,7 +2,8 @@ Commands relevant to the tasks.
 
 Task 1: Stores the sum of grades for each student in an associative array.
 
-NOTE: Initial code demonstrating total score output per student.
+NOTE: Retrieve grades located in field/columns 3, 4, 5, and saving the total
+      score within gradeSum associative array with $2 (student name) as the key.
 
 NR > 1 {
     # Set each key as the student name.
@@ -18,8 +19,8 @@ Task 2: Calculates the average grade for each student and classifies them as Pas
         (average ≥ 70) or Fail. (Must use a user-defined function to calculate the
          average.)
 
-NOTE: Initial code updated. gradeSum and gradeAvg arrays now initialize within the
-      main body. User-defined function implemented and invoked for required output. 
+NOTE: gradeSum and gradeAvg arrays now initialize within the main body.
+      User-defined function implemented and invoked for required output. 
 
 # key: student names
 # array: gradeSum
@@ -99,3 +100,31 @@ END {
     print "Total score: " gradeSum[studentWithHighest]
     print "Status: " status[studentWithHighest]    
 }
+
+Task 4: Print the following for each student at the end
+        * Student name
+        * Total score
+        * Average score
+        * Status (pass/fail)
+
+NOTE: Usage of for loop and several arrays within the end-block to satisfy output
+      requirement. Redundant print statements removed.
+
+END {
+    # n for name (the key)
+    for (n in gradeSum) { # alternative: for (i=0; i<indx; i++) req. names arr. & indx
+        print "Student name: " n
+        print "Total score: " gradeSum[n]
+        print "Average score: " gradeAvg[n]
+        printf "Status: " status[n] "\n\n"
+    }
+
+Task 5: Also, print the top and lowest scoring students
+
+NOTE: Output requirement satisfied. Redundant print statements removed. This was 
+      achieved using user-defined variables within the begin-block, two separate
+      if-else statements within the main body, and two print statements within
+      the end-block as shown below.
+
+print "Top scoring student: " studentWithHighest
+print "Lowest scoring student: " studentWithLowest
