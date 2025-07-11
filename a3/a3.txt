@@ -21,3 +21,14 @@ Bob's average grade is 82 [PASS]
 Charlie's average grade is 90 [PASS]
 David's average grade is 65 [FAIL]
 Eve's average grade is 88.3333 [PASS]
+
+Task 3: Determine the highest and lowest scoring students (total score)
+
+NOTE: Third output demonstrates proper retrieval of the lowest/highest scoring students.
+
+Student with the lowest score: David
+Total score: 195
+Status: FAIL
+Student with the highest score: Charlie
+Total score: 270
+Status: PASS
