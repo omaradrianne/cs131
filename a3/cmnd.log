@@ -2,7 +2,7 @@ Commands relevant to the tasks.
 
 Task 1: Stores the sum of grades for each student in an associative array.
 
-NOTE: This is sample code that demonstrate proper sum total output per student.
+NOTE: Initial code demonstrating total score output per student.
 
 NR > 1 {
     # Set each key as the student name.
@@ -12,4 +12,36 @@ NR > 1 {
 END {
     for (s in gradeSum)
         print s "\'s total grade is", gradeSum[s] "."
+}
+
+Task 2: Calculates the average grade for each student and classifies them as Pass 
+        (average ≥ 70) or Fail. (Must use a user-defined function to calculate the
+         average.)
+
+NOTE: Initial code updated. gradeSum and gradeAvg arrays now initialize within the
+      main body. User-defined function implemented and invoked for required output. 
+
+# key: student names
+# array: gradeSum
+function calculateAverageGrade(array, key) {
+    return array[key] / divisor
+}
+
+BEGIN {
+    print "a3-25su"
+    FS=","
+    divisor = 3
+}
+
+# NR > 1 excludes the header row.
+NR > 1 {
+    # Use unique keys (student names) to build two separate arrays:
+    # gradeSum and gradeAvg
+    gradeSum[$2] = $3 + $4 + $5
+    gradeAvg[$2] = calculateAverageGrade(gradeSum, $2) # invokes calculateAverageGrade()
+    printf $2 "'s average grade is " gradeAvg[$2] " "
+    if (gradeAvg[$2] >= 70)
+        print "[PASS]"
+    else
+        print "[FAIL]"
 }
