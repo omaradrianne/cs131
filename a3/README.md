@@ -24,14 +24,17 @@ Average score
 Pass/Fail status
 
 ## Sample CSV Format
+```csv
 StudentID,Name,CS146,CS131,CS100W
 101,Alice,85,90,78
 102,Bob,76,82,88
 103,Charlie,90,85,95
 104,David,65,70,60
 105,Eve,88,92,85
+```
 
 ## Sample Output
+```text
 a3-25su
 
 Student name: David
@@ -61,6 +64,7 @@ Status: Pass
 
 Top scoring student: Charlie
 Lowest scoring student: David
+```
 
 ## Script Structure
 BEGIN block:
