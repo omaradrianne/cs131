@@ -84,11 +84,13 @@ Loops through each student to print results
 Displays top and bottom scorers
 
 ## Requirements
+```text
 Unix-like environment
 AWK
+```
 
 ## Note (limitation)
-Designed for an input file with exactly 3 grades per student.
+Designed for an input file with exactly 3 grades per student
 
 ## License
 This assignment is for educational and demonstration purposes.
