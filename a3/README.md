@@ -67,6 +67,7 @@ Lowest scoring student: David
 ```
 
 ## Script Structure
+```text
 BEGIN block:
 Sets the field separator to a comma (,)
 Initializes a divisor (3) for averaging grades
@@ -82,6 +83,7 @@ the corresponding student names
 END block:
 Loops through each student to print results
 Displays top and bottom scorers
+```
 
 ## Requirements
 ```text
